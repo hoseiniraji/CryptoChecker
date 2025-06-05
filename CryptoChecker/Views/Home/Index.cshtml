@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    IEnumerable<SelectListItem> symbols = ((IEnumerable<string>)ViewBag.CryptoCurrenciesList)
+                                            .Select(s => new SelectListItem(s, s));
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Select a crypto symbol:</label>
+                <select class="form-control" id="symbol" asp-items="@symbols"></select>
+            </div>
+        </div>
+        <div class="col-md-4" id="result-section"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/jquery.commify.js"></script>
+    <script src="~/js/home.js" asp-append-version="true"></script>
+}
